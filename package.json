@@ -1,0 +1,15 @@
+
+{
+  "name": "mini-automation-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lightweight Hostless automation experiment",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node app/server.js",
+    "worker": "node services/task-runner.js",
+    "cron": "node cron/heartbeat.js"
+  }
+}
