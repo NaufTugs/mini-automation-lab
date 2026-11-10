@@ -1,0 +1,25 @@
+
+start_command: "npm start"
+
+health_check:
+  type: http
+  http_path: "/health"
+  interval_in_seconds: 30
+
+workers:
+  - name: "mini-task-runner"
+    command: "npm run worker"
+    min_cpu_per_replica: 1
+    max_cpu_per_replica: 1
+    min_memory_per_replica: 128
+    max_memory_per_replica: 256
+    replicas: 1
+
+cron_jobs:
+  - name: "mini-heartbeat"
+    command: "npm run cron"
+    schedule: "*/5 * * * *"
+    timezone_utc_offset: 7
+    cpus: 1
+    memory: 128
+    status: active
